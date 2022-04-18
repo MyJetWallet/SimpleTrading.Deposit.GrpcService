@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="MyPostgreSQL" Version="1.0.10" />
-        <PackageReference Include="SimpleTrading.Abstraction" Version="2.0.21" />
+        <PackageReference Include="SimpleTrading.Abstraction" Version="2.0.23" />
         <PackageReference Include="SimpleTrading.Common" Version="1.0.32" />
         <PackageReference Include="SimpleTrading.Deposit.Postgresql" Version="1.0.15" />
         <PackageReference Include="SimpleTrading.Payments.Abstractions" Version="1.0.2" />

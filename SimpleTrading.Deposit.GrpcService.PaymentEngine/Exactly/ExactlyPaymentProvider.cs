@@ -71,7 +71,7 @@ namespace SimpleTrading.Deposit.GrpcService.PaymentEngine.Exactly
                 .WithOAuthBearerToken(_bearerToken)
                 .PostJsonAsync(requestData);
 
-            return await response.ProcessPaymentProviderResponse<CreatePaymentInvoiceResponse>();
+            return await response.ResponseMessage.ProcessPaymentProviderResponse<CreatePaymentInvoiceResponse>();
         }
     }
 }

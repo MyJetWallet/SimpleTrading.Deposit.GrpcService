@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Flurl" Version="2.8.2" />
-        <PackageReference Include="Flurl.Http" Version="2.4.2" />
+        <PackageReference Include="Flurl" Version="3.0.4" />
+        <PackageReference Include="Flurl.Http" Version="3.2.2" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
         <PackageReference Include="Serilog" Version="2.10.0" />
         <PackageReference Include="SimpleTrading.Deposit.Grpc" Version="1.2.18" />
