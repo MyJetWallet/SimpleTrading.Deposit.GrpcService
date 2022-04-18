@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="SimpleTrading.Deposit.Grpc" Version="1.2.18" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SimpleTrading.Deposit.GrcpService.Psql\SimpleTrading.Deposit.GrcpService.Psql.csproj" />
+    </ItemGroup>
+    
+</Project>

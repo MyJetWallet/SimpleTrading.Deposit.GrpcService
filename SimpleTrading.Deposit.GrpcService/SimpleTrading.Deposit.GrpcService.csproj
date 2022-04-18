@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <Version>3.0.19</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DotNetCoreDecorators" Version="1.0.21" />
+      <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.20.0" />
+      <PackageReference Include="MyCrm.AuditLog.Grpc" Version="1.0.4" />
+      <PackageReference Include="SimpleTrading.BaseMetrics" Version="1.0.3" />
+      <PackageReference Include="SimpleTrading.ConvertService.Grpc" Version="1.0.3" />
+      <PackageReference Include="SimpleTrading.Deposit.Grpc" Version="1.2.18" />
+      <PackageReference Include="SimpleTrading.Engine.Grpc" Version="1.0.54" />
+      <PackageReference Include="SimpleTrading.MyLogger" Version="1.0.10" />
+      <PackageReference Include="SimpleTrading.Payments.Abstractions" Version="1.0.2" />
+      <PackageReference Include="SimpleTrading.Payments.ServiceBus" Version="1.0.2" />
+      <PackageReference Include="SimpleTrading.ServiceBus" Version="4.0.17" />
+      <PackageReference Include="SimpleTrading.SettingsReader" Version="1.1.0" />
+      <PackageReference Include="SimpleTrading.ServiceStatusReporterConnector" Version="1.0.9" />
+      <PackageReference Include="SimpleTrading.Auth.Grpc" Version="1.2.0" />
+      <PackageReference Include="St.MyCrm.Mt5.Grpc" Version="1.0.11" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SimpleTrading.Deposit.GrcpService.Azure\SimpleTrading.Deposit.GrcpService.Azure.csproj" />
+      <ProjectReference Include="..\SimpleTrading.Deposit.GrcpService.Psql\SimpleTrading.Deposit.GrcpService.Psql.csproj" />
+      <ProjectReference Include="..\SimpleTrading.Deposit.GrpcService.PaymentEngine\SimpleTrading.Deposit.GrpcService.PaymentEngine.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Utils\" />
+    </ItemGroup>
+
+</Project>

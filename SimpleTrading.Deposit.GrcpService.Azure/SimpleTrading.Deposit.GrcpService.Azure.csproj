@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>SimpleTrading.Deposit.Azure</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MyAzureTableStorage" Version="1.1.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SimpleTrading.Deposit.GrpcService.Domains\SimpleTrading.Deposit.GrpcService.Domains.csproj" />
+    </ItemGroup>
+
+    
+    
+</Project>

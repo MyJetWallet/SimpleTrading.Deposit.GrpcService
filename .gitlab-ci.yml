@@ -1,28 +1,13 @@
 image: mcr.microsoft.com/dotnet/sdk:5.0-alpine
 
 variables:
-  BUILD_FOLDER: SimpleTrading.Deposit.PublicApi
-  TEST_FOLDER: SimpleTrading.Deposit.PublicApi.Test
-  DOCKER_IMAGE_TAG: monfex/simple-trading-deposit-manager-view
+  BUILD_FOLDER: SimpleTrading.Deposit.GrpcService
+  DOCKER_IMAGE_TAG: monfex/simple-trading-deposit-grpc-service
+  KUBERNETES_APP_SELECTOR_NAME_DEV: simple-trading-deposit-manager
 
 stages:
-  - test
   - build
   - publish
-  - publish-kubernetes-dev
-  - lock-image
-    
-test:
-  stage: test
-  tags: [monfex]
-  script:
-    - cd ${TEST_FOLDER}
-    - dotnet test
-  only:
-    - test
-    - develop
-    - master
-
 
 build:
   stage: build
@@ -40,7 +25,6 @@ build:
 
 publish-prod:
   stage: publish
-  tags: [monfex]
   services:
     - docker:dind
   variables:
@@ -61,7 +45,6 @@ publish-prod:
 
 publish-test:
   stage: publish
-  tags: [monfex]
   services:
     - docker:dind
   variables:
@@ -83,7 +66,7 @@ publish-test:
 publish-dev:
   stage: publish
   services:
-    - docker:dind
+    - docker:19.03.0-dind
   script:
     - cd ${BUILD_FOLDER}
     - projectfile=${BUILD_FOLDER}
@@ -95,21 +78,5 @@ publish-dev:
     - docker build  --build-arg app_version=${DOCKER_IMAGE_TAG}:$ver --build-arg app_compilation_date=`date -u +"%Y-%m-%dT%H:%M:%SZ"` -t $DOCKER_REGISTRY_HOST/${DOCKER_IMAGE_TAG}:$ver .
     - docker push $DOCKER_REGISTRY_HOST/${DOCKER_IMAGE_TAG}:$ver
   image: docker:latest
-  only:
-    - develop
-
-publish-kubernetes-dev:
-  stage: publish-kubernetes-dev
-  image: simpletrading.azurecr.io/monfex/simple-trading-kubectl:latest
-  services:
-    - docker:dind
-  before_script:
-    - kubectl config use-context $KUBERNETES_DEV_CONTEXT
-  script:
-    - cd ${BUILD_FOLDER}
-    - projectfile=${BUILD_FOLDER}
-    - ver=$(cat $projectfile.csproj | grep '<Version>' | awk -F ">" '{print $2}' | awk -F"<" '{print $1}')-${CI_COMMIT_REF_NAME}
-    - echo $ver
-    - kubectl set image deployments/${KUBERNETES_APP_SELECTOR_NAME_DEV} ${KUBERNETES_APP_SELECTOR_NAME_DEV}=$DOCKER_REGISTRY_HOST/${DOCKER_IMAGE_TAG}:$ver --namespace=$KUBERNETES_DEV_NAMESPACE
   only:
     - develop
