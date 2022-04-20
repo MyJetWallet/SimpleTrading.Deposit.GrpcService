@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="MyPostgreSQL" Version="1.0.10" />
+        <PackageReference Include="MyPostgreSQL" Version="1.0.11" />
         <PackageReference Include="SimpleTrading.Abstraction" Version="2.0.23" />
         <PackageReference Include="SimpleTrading.Common" Version="1.0.32" />
         <PackageReference Include="SimpleTrading.Deposit.Postgresql" Version="1.0.15" />
