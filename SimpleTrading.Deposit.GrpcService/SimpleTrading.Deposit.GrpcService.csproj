@@ -7,7 +7,7 @@
 
     <ItemGroup>
       <PackageReference Include="DotNetCoreDecorators" Version="1.0.21" />
-      <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.20.0" />
+      <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
       <PackageReference Include="MyCrm.AuditLog.Grpc" Version="1.0.4" />
       <PackageReference Include="SimpleTrading.BaseMetrics" Version="1.0.3" />
       <PackageReference Include="SimpleTrading.ConvertService.Grpc" Version="1.0.3" />
